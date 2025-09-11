@@ -1,33 +1,28 @@
-package co.com.bancolombia.mongo.entity;
+package co.com.bancolombia.r2dbc.entity;
 
-import lombok.*;
+
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.*;
+import org.springframework.data.relational.core.mapping.Table;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Document(collection="customer")
+
+@Table("customer")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-@Builder
+
 public class CustomerEntity {
     @Id
-    private String id;
-
+    private Long id;
+    private Long idNumber;
     private String names;
-
     private String lastNames;
-
     private LocalDate birthDate;
-
     private String address;
-
     private String phone;
-
     private String email;
-
-    private BigDecimal salary;
+    private Integer salary;
 }

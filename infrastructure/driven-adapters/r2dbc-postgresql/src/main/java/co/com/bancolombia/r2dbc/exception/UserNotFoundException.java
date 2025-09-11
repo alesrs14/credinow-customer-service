@@ -1,4 +1,4 @@
-package co.com.bancolombia.mongo.exception;
+package co.com.bancolombia.r2dbc.exception;
 
 public class UserNotFoundException extends RuntimeException{
 }
