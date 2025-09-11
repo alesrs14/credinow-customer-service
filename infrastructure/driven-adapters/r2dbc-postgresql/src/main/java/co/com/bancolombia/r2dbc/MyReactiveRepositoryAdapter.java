@@ -1,19 +1,22 @@
-package co.com.bancolombia.mongo;
+package co.com.bancolombia.r2dbc;
 
 import co.com.bancolombia.model.customer.Customer;
 import co.com.bancolombia.model.customer.gateways.CustomerRepository;
-import co.com.bancolombia.mongo.entity.CustomerEntity;
-import co.com.bancolombia.mongo.helper.AdapterOperations;
+import co.com.bancolombia.r2dbc.entity.CustomerEntity;
+import co.com.bancolombia.r2dbc.helper.ReactiveAdapterOperations;
 import org.reactivecommons.utils.ObjectMapper;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Repository
-public class MongoRepositoryAdapter extends AdapterOperations<Customer, CustomerEntity, String, MongoDBRepository> implements CustomerRepository
-{
-
-    public MongoRepositoryAdapter(MongoDBRepository repository, ObjectMapper mapper) {
+public class MyReactiveRepositoryAdapter extends ReactiveAdapterOperations<
+        Customer,
+        CustomerEntity,
+    Long,
+    MyReactiveRepository
+> implements CustomerRepository {
+    public MyReactiveRepositoryAdapter(MyReactiveRepository repository, ObjectMapper mapper) {
         /**
          *  Could be use mapper.mapBuilder if your domain model implement builder pattern
          *  super(repository, mapper, d -> mapper.mapBuilder(d,ObjectModel.ObjectModelBuilder.class).build());
@@ -21,7 +24,6 @@ public class MongoRepositoryAdapter extends AdapterOperations<Customer, Customer
          */
         super(repository, mapper, d -> mapper.map(d, Customer.class/* change for domain model */));
     }
-
     @Override
     public Mono<Customer> saveCustomer(Customer customer) {
         return super.save(customer);

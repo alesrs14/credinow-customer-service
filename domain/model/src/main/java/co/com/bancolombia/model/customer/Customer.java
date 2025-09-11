@@ -5,7 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 
 @Getter
 @Setter
@@ -13,13 +14,12 @@ import java.util.Date;
 @AllArgsConstructor
 @Builder(toBuilder = true)
 public class Customer {
-
     private Long idNumber;
     private String names;
     private String lastNames;
-    private Date birthDate;
+    private LocalDate birthDate;
     private String address;
     private String phone;
     private String email;
-    private String salary;
+    private Integer salary;
 }
