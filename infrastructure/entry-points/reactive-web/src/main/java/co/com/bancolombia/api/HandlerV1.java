@@ -5,7 +5,6 @@ import co.com.bancolombia.api.dto.CustomerDTO;
 import co.com.bancolombia.model.customer.Customer;
 import co.com.bancolombia.usecase.customer.CustomerUseCase;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
