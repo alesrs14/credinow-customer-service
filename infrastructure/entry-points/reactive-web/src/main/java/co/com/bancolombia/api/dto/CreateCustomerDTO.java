@@ -1,7 +1,8 @@
 package co.com.bancolombia.api.dto;
 
 import java.math.BigInteger;
+import java.time.LocalDate;
 import java.util.Date;
 
-public record CreateCustomerDTO(Long idNumber, String names , String lastNames, String birthDate, String address , String phone , String email , String salary) {
+public record CreateCustomerDTO(Long idNumber, String names , String lastNames, LocalDate birthDate, String address , String phone , String email , Long salary) {
 }
