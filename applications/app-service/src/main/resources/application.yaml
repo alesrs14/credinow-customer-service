@@ -2,7 +2,7 @@ server:
   port: 8080
 spring:
   application:
-    name: "CrediNow"
+    name: "CrediNow-Authentication"
   devtools:
     add-properties: false
   profiles:
